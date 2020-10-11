@@ -8,6 +8,7 @@ function HeaderContainer() {
             <Header.Logo />
             <Header.Search>
                 <Header.SearchInput type="text" />
+                <Header.SearchIcon />
             </Header.Search>
             <Header.Navegation>
 
@@ -25,8 +26,13 @@ function HeaderContainer() {
                     <Header.OptionLineOne>Your</Header.OptionLineOne>
                     <Header.OptionLineTwo>Prime</Header.OptionLineTwo>
                 </Header.Option>
-            </Header.Navegation>
 
+                <Header.OptionBasket>
+                    <Header.BasketShoppingIcon />
+                    <Header.BasketCount>0</Header.BasketCount>
+                </Header.OptionBasket>
+
+            </Header.Navegation>
         </Header>
     );
 };

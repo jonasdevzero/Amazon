@@ -5,10 +5,14 @@ import {
     Logo,
     Search,
     SearchInput,
+    SearchIcon,
     Navegation,
     Option,
+    OptionBasket,
+    BasketShoppingIcon,
     OptionLineOne,
-    OptionLineTwo
+    OptionLineTwo,
+    BasketCount
 } from './styles';
 
 function Header({ children, ...props }) {
@@ -27,12 +31,24 @@ Header.SearchInput = function HeaderSearchInput({ children, ...props }) {
     return <SearchInput {...props}>{children}</SearchInput>;
 };
 
+Header.SearchIcon = function HeaderSearchIcon() {
+    return <SearchIcon />
+}
+
 Header.Navegation = function HeaderNavegation({ children, ...props }) {
     return <Navegation {...props}>{children}</Navegation>;
 };
 
-Header.Option = function HeaderOption({ cjildren, ...props }) {
+Header.Option = function HeaderOption({ children, ...props }) {
     return <Option {...props}>{children}</Option>;
+};
+
+Header.OptionBasket = function HeaderOptionBasket({ children, ...props }) {
+    return <OptionBasket {...props}>{children}</OptionBasket>;
+};
+
+Header.BasketShoppingIcon = function HeaderBasketShoppingIcon() {
+    return <BasketShoppingIcon />;
 };
 
 Header.OptionLineOne = function HeaderOptionLineOne({ children, ...props }) {
@@ -41,6 +57,10 @@ Header.OptionLineOne = function HeaderOptionLineOne({ children, ...props }) {
 
 Header.OptionLineTwo = function HeaderOptionLineTwo({ children, ...props }) {
     return <OptionLineTwo {...props}>{children}</OptionLineTwo>;
+};
+
+Header.BasketCount = function HeaderBasketCount({ children, ...props }) {
+    return <BasketCount {...props}>{children}</BasketCount>;
 };
 
 export default Header;
