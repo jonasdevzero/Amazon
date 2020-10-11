@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { Container } from './GlobalStyles';
-import { HeaderContainer } from './containers';
+import { HeaderContainer, HomeContainer } from './containers';
 
 function App() {
   return (
     <Container>
       <HeaderContainer />
+      <HomeContainer />
     </Container>
   );
 };
