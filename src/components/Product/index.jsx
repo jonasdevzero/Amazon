@@ -1,11 +1,15 @@
 import React from 'react';
 
-import { 
+import {
     Container,
-    Info, 
+    Info,
     Title,
-    Price 
+    Price,
+    Rating,
+    Image,
+    Add
 } from './styles';
+import StarRateIcon from '@material-ui/icons/StarRate';
 
 function Product({ children, ...props }) {
     return <Container {...props}>{children}</Container>;
@@ -26,5 +30,25 @@ Product.Price = function ProductPrice({ children, ...props }) {
             <strong>{children}</strong>
         </Price>);
 };
+
+Product.Rating = function ProductRating({ children, ...props }) {
+    return (
+        <Rating {...props}>
+            <StarRateIcon fontSize="large" />
+            <StarRateIcon fontSize="large" />
+            <StarRateIcon fontSize="large" />
+            <StarRateIcon fontSize="large" />
+            <StarRateIcon fontSize="large" />
+        </Rating>
+    )
+};
+
+Product.Image = function ProductImage({ src, alt }) {
+    return <Image src={src} alt={alt} />
+}
+
+Product.Add = function ProductAdd({ ...props }) {
+    return <Add {...props}>Add to basket</Add>
+}
 
 export default Product;
