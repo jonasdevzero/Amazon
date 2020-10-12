@@ -31,16 +31,12 @@ Product.Price = function ProductPrice({ children, ...props }) {
         </Price>);
 };
 
-Product.Rating = function ProductRating({ children, ...props }) {
+Product.Rating = function ProductRating({ rating }) {
     return (
-        <Rating {...props}>
-            <StarRateIcon fontSize="large" />
-            <StarRateIcon fontSize="large" />
-            <StarRateIcon fontSize="large" />
-            <StarRateIcon fontSize="large" />
-            <StarRateIcon fontSize="large" />
+        <Rating>
+            {Array(rating).fill().map((_, i) => <StarRateIcon fontSize="large" />)}
         </Rating>
-    )
+    );
 };
 
 Product.Image = function ProductImage({ src, alt }) {

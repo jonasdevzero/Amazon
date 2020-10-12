@@ -16,7 +16,7 @@ export const Container = styled.div`
 
 export const Info = styled.div`
     max-height: 10rem;
-    margin-bottom: 1.5rem;
+    align-self: start;
 `;
 
 export const Title = styled.p`
@@ -28,6 +28,8 @@ export const Price = styled.div`
 `;
 
 export const Rating = styled.div`
+    align-self: flex-start;
+
     .MuiSvgIcon-root {
         color: #ff0;
     }
@@ -36,6 +38,7 @@ export const Rating = styled.div`
 export const Image = styled.img`
     width: 100%;
     max-height: 20rem;
+    margin-top: 2.5rem;
     margin-bottom: 1.5rem;
     object-fit: contain;
 `;
