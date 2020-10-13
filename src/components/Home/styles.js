@@ -1,7 +1,10 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-
+    display: flex;
+    justify-content: center;
+    max-width: 107.3rem;
+    margin: 0 auto;
 `;
 
 export const Inner = styled.div`
@@ -16,5 +19,7 @@ export const Banner = styled.img`
 `;
 
 export const Row = styled.div`
-
+    display: flex;
+    z-index: 1;
+    margin: 0 .5rem;
 `;

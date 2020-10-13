@@ -62,6 +62,7 @@ export const OptionLineOne = styled.span`
 export const OptionLineTwo = styled.span`
     font-size: 1.3rem;
     font-weight: 800;
+    cursor: pointer;
 `;
 
 export const OptionBasket = styled.div`
@@ -73,6 +74,7 @@ export const OptionBasket = styled.div`
 export const BasketShoppingIcon = styled(ShoppingBasketI)`
     height: 2.5rem !important;
     width: 2.5rem !important;
+    cursor: pointer;
 `;
 
 export const BasketCount = styled(OptionLineTwo)`

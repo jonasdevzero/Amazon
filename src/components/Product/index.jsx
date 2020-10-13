@@ -34,7 +34,7 @@ Product.Price = function ProductPrice({ children, ...props }) {
 Product.Rating = function ProductRating({ rating }) {
     return (
         <Rating>
-            {Array(rating).fill().map((_, i) => <StarRateIcon fontSize="large" />)}
+            {Array(rating).fill().map(_ => <StarRateIcon fontSize="large" />)}
         </Rating>
     );
 };
