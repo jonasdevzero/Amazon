@@ -8,7 +8,7 @@ function HomeContainer() {
             <Home.Inner>
                 <Home.Banner
                     src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.img"
-                    alt=""
+                    alt="Amazon Banner"
                 />
 
                 <Home.Row>
@@ -18,7 +18,10 @@ function HomeContainer() {
                             <Product.Price>500.0</Product.Price>
                         </Product.Info>
                         <Product.Rating rating={5} />
-                        <Product.Image src="https://s2.glbimg.com/I2_W4j1HEKEtrCj-bgTPVMzN5S0=/0x236:3600x2211/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/L/W/GO8WsPQ6C090NUUUD2GA/ps5.jpg" alt="play station 5" />
+                        <Product.Image 
+                            src="https://s2.glbimg.com/I2_W4j1HEKEtrCj-bgTPVMzN5S0=/0x236:3600x2211/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/L/W/GO8WsPQ6C090NUUUD2GA/ps5.jpg" 
+                            alt="play station 5" 
+                        />
                         <Product.Add />
                     </Product>
                     <Product>
@@ -27,7 +30,9 @@ function HomeContainer() {
                             <Product.Price>450.0</Product.Price>
                         </Product.Info>
                         <Product.Rating rating={5} />
-                        <Product.Image src="https://imagens.canaltech.com.br/produto/1584982530-7573-principal-m.png" alt="xbox series x" />
+                        <Product.Image src="https://imagens.canaltech.com.br/produto/1584982530-7573-principal-m.png" 
+                            alt="xbox series x" 
+                        />
                         <Product.Add />
                     </Product>
                 </Home.Row>
