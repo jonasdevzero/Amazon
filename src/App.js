@@ -1,15 +1,8 @@
 import React from 'react';
-
-import { Container } from './GlobalStyles';
-import { HeaderContainer, HomeContainer } from './containers';
+import Routes from './routes';
 
 function App() {
-  return (
-    <Container>
-      <HeaderContainer />
-      <HomeContainer />
-    </Container>
-  );
+  return <Routes />;
 };
 
 export default App;
