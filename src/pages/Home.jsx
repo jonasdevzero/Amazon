@@ -1,17 +1,8 @@
 import React from 'react';
-
-import { 
-    HeaderContainer,
-    HomeContainer  
-} from '../containers'
+import { HomeContainer } from '../containers'
 
 function Home() {
-    return (
-        <div>
-            <HeaderContainer />
-            <HomeContainer />
-        </div>
-    );
+    return <HomeContainer />;
 };
 
 export default Home;

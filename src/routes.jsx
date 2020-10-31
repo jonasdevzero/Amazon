@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Home, Basket } from './pages'
+import { Home, Checkout } from './pages';
+import { HeaderContainer } from './containers';
 
 function Routes() {
     return (
         <Router>
+            <HeaderContainer />
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/basket' component={Basket} />
+                <Route path='/checkout' component={Checkout} />
             </Switch>
         </Router>
     );
