@@ -1,11 +1,8 @@
 import React from 'react';
+import { CheckoutContainer } from '../containers';
 
-function Basket() {
-    return (
-        <div>
-            <h1>Basket</h1>
-        </div>
-    );
+function Checkout() {
+    return <CheckoutContainer />;
 };
 
-export default Basket;
+export default Checkout;
