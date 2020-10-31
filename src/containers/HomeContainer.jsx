@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Home, Product } from '../../components';
+import { Home, Product } from '../components';
 
 function HomeContainer() {
     return (
