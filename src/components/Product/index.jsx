@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useStateValue } from '../../Provider/StateProvider';
+
 import {
     Container,
     Info,
@@ -11,7 +13,22 @@ import {
 } from './styles';
 import StarRateIcon from '@material-ui/icons/StarRate';
 
-function Product({ title, price, rating, image, onClick }) {
+function Product({ id, title, price, rating, image }) {
+    const [{ basket }, dispatch] = useStateValue();
+
+    function addToBasket() {
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            item: {
+                id,
+                title,
+                price,
+                rating, 
+                image
+            }
+        })
+    };
+
     return (
         <Container>
             <Info>
@@ -22,11 +39,11 @@ function Product({ title, price, rating, image, onClick }) {
                 </Price>
             </Info>
             <Rating>
-                {Array(rating).fill().map(_ => <StarRateIcon fontSize="large" />)}
+                {Array(rating).fill().map((_, i) => <StarRateIcon key={i} fontSize="large" />)}
             </Rating>
             <Image src={image} alt='product' />
 
-            <Add onClick={onClick}>Add to basket</Add>
+            <Add onClick={addToBasket}>Add to basket</Add>
         </Container>
     );
 };
