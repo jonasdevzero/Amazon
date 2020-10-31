@@ -1,11 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { useStateValue } from '../Provider/StateProvider';
 
 import { Header } from '../components';
 
 function HeaderContainer() {
+    const [{ basket }, dispatch] = useStateValue();
+
     return (
         <Header>
-            <Header.Logo />
+            <Link to='/'>
+                <Header.Logo />
+            </Link>
             <Header.Search>
                 <Header.SearchInput type="text" />
                 <Header.SearchIcon />
@@ -27,10 +34,12 @@ function HeaderContainer() {
                     <Header.OptionLineTwo>Prime</Header.OptionLineTwo>
                 </Header.Option>
 
-                <Header.OptionBasket>
-                    <Header.BasketShoppingIcon />
-                    <Header.BasketCount>0</Header.BasketCount>
-                </Header.OptionBasket>
+                <Link to='/checkout'>
+                    <Header.OptionBasket>
+                        <Header.BasketShoppingIcon />
+                        <Header.BasketCount>{basket?.length}</Header.BasketCount>
+                    </Header.OptionBasket>
+                </Link>
 
             </Header.Navegation>
         </Header>
