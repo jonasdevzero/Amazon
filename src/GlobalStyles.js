@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -16,8 +16,4 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         background-color: rgb(234, 237, 237);
     };
-`;
-
-export const Container = styled.div`
-
 `;
