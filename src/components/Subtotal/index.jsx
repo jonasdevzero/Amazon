@@ -16,10 +16,7 @@ function Subtotal({ items }) {
                         <p>
                             Subtotal ({items.length} items):
                             <strong>
-                                $
-                                {items.reduce((initialValue, currentValue) => {
-                                    return initialValue + currentValue.price
-                                }, 0)}
+                                $ {value}
                             </strong>
                         </p>
                         <Gift>
@@ -30,7 +27,7 @@ function Subtotal({ items }) {
                     </>
                 )}
                 decimalScale={2}
-                value={0}
+                value={items.reduce((amout, item) => amout + item.price, 0)}
                 displayType="text"
                 thousandSeparator={true}
                 prefix={"$"}
