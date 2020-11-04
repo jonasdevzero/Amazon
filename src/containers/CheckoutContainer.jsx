@@ -14,6 +14,7 @@ function CheckoutContainer() {
 
                 <div>
                     <Checkout.Title>Your shopping Basket</Checkout.Title>
+                    {basket.map((item, i) => <Checkout.Product key={`${item.title}-${i}` } item={item} />)}
                 </div>
             </Checkout.Left>
 
