@@ -19,10 +19,12 @@ function HeaderContainer() {
             </Header.Search>
             <Header.Navegation>
 
-                <Header.Option>
-                    <Header.OptionLineOne>Hello</Header.OptionLineOne>
-                    <Header.OptionLineTwo>Sign In</Header.OptionLineTwo>
-                </Header.Option>
+                <Link to='/login'>
+                    <Header.Option>
+                        <Header.OptionLineOne>Hello</Header.OptionLineOne>
+                        <Header.OptionLineTwo>Sign In</Header.OptionLineTwo>
+                    </Header.Option>
+                </Link>
 
                 <Header.Option>
                     <Header.OptionLineOne>Return</Header.OptionLineOne>

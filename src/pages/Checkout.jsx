@@ -1,8 +1,11 @@
 import React from 'react';
-import { CheckoutContainer } from '../containers';
+import { CheckoutContainer, HeaderContainer } from '../containers';
 
 function Checkout() {
-    return <CheckoutContainer />;
+    return <>
+        <HeaderContainer />
+        <CheckoutContainer />
+    </>;
 };
 
 export default Checkout;

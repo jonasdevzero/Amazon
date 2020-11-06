@@ -60,6 +60,8 @@ export const OptionLineOne = styled.span`
 `;
 
 export const OptionLineTwo = styled.span`
+    color: #FFF;
+    text-decoration: none;
     font-size: 1.3rem;
     font-weight: 800;
     cursor: pointer;
