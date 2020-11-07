@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
+
+import { LoginContainer } from '../containers';
 
 function Login() {
-    return (
-        <div>
-            <h1>Login page</h1>
-        </div>
-    )
-}
+    return <LoginContainer />
+};
 
-export default Login
+export default Login;
