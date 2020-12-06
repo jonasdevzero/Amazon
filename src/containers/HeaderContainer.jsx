@@ -1,12 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { auth } from '../firebase'
 import { useStateValue } from '../Provider/StateProvider';
 
 import { Header } from '../components';
 
 function HeaderContainer() {
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }] = useStateValue();
+
+    function handleAuth() {
+        if (user) {
+            auth.signOut();
+        }
+    }
 
     return (
         <Header>
@@ -19,10 +26,10 @@ function HeaderContainer() {
             </Header.Search>
             <Header.Navegation>
 
-                <Link to='/login'>
-                    <Header.Option>
+                <Link to={!user && '/login'}>
+                    <Header.Option onClick={handleAuth}>
                         <Header.OptionLineOne>Hello</Header.OptionLineOne>
-                        <Header.OptionLineTwo>Sign In</Header.OptionLineTwo>
+                        <Header.OptionLineTwo>{user ? 'Sign Out' : 'Sign In'}</Header.OptionLineTwo>
                     </Header.Option>
                 </Link>
 
