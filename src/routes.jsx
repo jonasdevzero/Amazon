@@ -7,7 +7,8 @@ import { useStateValue } from './Provider/StateProvider';
 import { Home, Checkout, Login } from './pages';
 
 function Routes() {
-    const [{}, dispatch] = useStateValue();
+    // eslint-disable-next-line no-empty-pattern
+    const [{ }, dispatch] = useStateValue();
 
     useEffect(() => {
         auth.onAuthStateChanged(authUser => {
@@ -23,7 +24,7 @@ function Routes() {
                 });
             };
         });
-    }, []);
+    }, [dispatch]);
 
     return (
         <Router>

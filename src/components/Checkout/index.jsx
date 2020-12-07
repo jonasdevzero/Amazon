@@ -29,7 +29,8 @@ Checkout.Right = function CheckoutRight({ children, ...props }) {
 };
 
 Checkout.Product = function CheckoutProduct({ item }) {
-    const [{ basket }, dispatch] = useStateValue();
+    // eslint-disable-next-line no-empty-pattern
+    const [{ }, dispatch] = useStateValue();
 
     function removeFromBasket() {
         dispatch({

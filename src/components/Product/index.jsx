@@ -14,7 +14,8 @@ import {
 import StarRateIcon from '@material-ui/icons/StarRate';
 
 function Product({ id, title, price, rating, image }) {
-    const [{ basket }, dispatch] = useStateValue();
+    // eslint-disable-next-line no-empty-pattern
+    const [{ }, dispatch] = useStateValue();
 
     function addToBasket() {
         dispatch({
@@ -23,7 +24,7 @@ function Product({ id, title, price, rating, image }) {
                 id,
                 title,
                 price,
-                rating, 
+                rating,
                 image
             }
         })

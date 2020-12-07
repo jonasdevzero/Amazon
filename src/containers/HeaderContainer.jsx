@@ -26,7 +26,7 @@ function HeaderContainer() {
             </Header.Search>
             <Header.Navegation>
 
-                <Link to={!user && '/login'}>
+                <Link to={!user ? '/login' : '/'}>
                     <Header.Option onClick={handleAuth}>
                         <Header.OptionLineOne>Hello</Header.OptionLineOne>
                         <Header.OptionLineTwo>{user ? 'Sign Out' : 'Sign In'}</Header.OptionLineTwo>
