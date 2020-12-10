@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useHistory } from 'react';
 import CurrencyFormat from 'react-currency-format';
 
 import {
@@ -8,6 +8,8 @@ import {
 } from './styles';
 
 function Subtotal({ items }) {
+    const history = useHistory()
+
     return (
         <Container>
             <CurrencyFormat
@@ -23,7 +25,7 @@ function Subtotal({ items }) {
                             <input type="checkbox" />
                             This order contains a gift
                         </Gift>
-                        <Button>Proced to Checkout</Button>
+                        <Button onClick={() => history.push('/order')}>Proced to Checkout</Button>
                     </>
                 )}
                 decimalScale={2}

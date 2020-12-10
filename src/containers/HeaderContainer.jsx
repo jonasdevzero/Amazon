@@ -28,7 +28,7 @@ function HeaderContainer() {
 
                 <Link to={!user ? '/login' : '/'}>
                     <Header.Option onClick={handleAuth}>
-                        <Header.OptionLineOne>Hello</Header.OptionLineOne>
+                        <Header.OptionLineOne>Hello, {!user ? 'Gest' : user.email}</Header.OptionLineOne>
                         <Header.OptionLineTwo>{user ? 'Sign Out' : 'Sign In'}</Header.OptionLineTwo>
                     </Header.Option>
                 </Link>
