@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckoutContainer, HeaderContainer } from '../containers';
+import { CheckoutContainer, HeaderContainer } from '../../containers';
 
 function Checkout() {
     return <>
