@@ -41,7 +41,7 @@ function Header() {
             </Search>
             <Navegation>
 
-                <Link to={!user ? '/login' : '/'}>
+                <Link to={!user ? '/login' : document.location.pathname}>
                     <Option onClick={handleAuth}>
                         <OptionLineOne>Hello, {user ? user.email.split('@')[0] : 'Gest'}</OptionLineOne>
                         <OptionLineTwo>{user ? 'Sign Out' : 'Sign In'}</OptionLineTwo>

@@ -26,7 +26,7 @@ function Subtotal({ items }) {
                             <input type="checkbox" />
                             This order contains a gift
                         </Gift>
-                        <Button onClick={() => history.push('/order')}>Proced to Checkout</Button>
+                        <Button onClick={() => history.push('/payment')}>Proced to Checkout</Button>
                     </>
                 )}
                 decimalScale={2}
