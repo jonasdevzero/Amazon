@@ -67,4 +67,3 @@ export const Register = styled.button`
     border-radius: .2rem;
     cursor: pointer;
 `;
-
