@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { auth } from './firebase';
 import { useStateValue } from './Provider/StateProvider';
 
+import { Header } from './components';
 import { Home, Checkout, Login } from './pages';
 
 function Routes() {
@@ -29,9 +30,17 @@ function Routes() {
     return (
         <Router>
             <Switch>
-                <Route exact path='/' component={Home} />
-                <Route path='/checkout' component={Checkout} />
-                <Route path='/login' component={Login} />
+                <Route exact path='/'>
+                    <Header />
+                    <Home />
+                </Route>
+                <Route path='/checkout'>
+                    <Header />
+                    <Checkout />
+                </Route>
+                <Route path='/login'>
+                    <Login />
+                </Route>
             </Switch>
         </Router>
     );

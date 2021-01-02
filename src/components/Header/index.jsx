@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { auth } from '../../firebase';
+import { useStateValue } from '../../Provider/StateProvider';
 
 import {
     Container,
@@ -15,52 +18,56 @@ import {
     BasketCount
 } from './styles';
 
-function Header({ children, ...props }) {
-    return <Container {...props}>{children}</Container>
-};
+function Header() {
+    const [{ basket, user }] = useStateValue();
 
-Header.Logo = function HeaderLogo() {
-    return <Logo src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' />;
-};
+    function handleAuth() {
+        if (user) {
+            auth.signOut();
+        };
+    };
 
-Header.Search = function HeaderSearch({ children, ...props }) {
-    return <Search {...props}>{children}</Search>;
-};
+    return (
+        <Container>
+            <Link to='/'>
+                <Logo
+                    src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
+                    alt=''
+                />
+            </Link>
+            <Search>
+                <SearchInput type="text" />
+                <SearchIcon />
+            </Search>
+            <Navegation>
 
-Header.SearchInput = function HeaderSearchInput({ children, ...props }) {
-    return <SearchInput {...props}>{children}</SearchInput>;
-};
+                <Link to={!user ? '/login' : '/'}>
+                    <Option onClick={handleAuth}>
+                        <OptionLineOne>Hello, {!user ? 'Gest' : user.email}</OptionLineOne>
+                        <OptionLineTwo>{user ? 'Sign Out' : 'Sign In'}</OptionLineTwo>
+                    </Option>
+                </Link>
 
-Header.SearchIcon = function HeaderSearchIcon() {
-    return <SearchIcon />
-}
+                <Option>
+                    <OptionLineOne>Return</OptionLineOne>
+                    <OptionLineTwo>Orders</OptionLineTwo>
+                </Option>
 
-Header.Navegation = function HeaderNavegation({ children, ...props }) {
-    return <Navegation {...props}>{children}</Navegation>;
-};
+                <Option>
+                    <OptionLineOne>Your</OptionLineOne>
+                    <OptionLineTwo>Prime</OptionLineTwo>
+                </Option>
 
-Header.Option = function HeaderOption({ children, ...props }) {
-    return <Option {...props}>{children}</Option>;
-};
+                <Link to='/checkout'>
+                    <OptionBasket>
+                        <BasketShoppingIcon />
+                        <BasketCount>{basket?.length}</BasketCount>
+                    </OptionBasket>
+                </Link>
 
-Header.OptionBasket = function HeaderOptionBasket({ children, ...props }) {
-    return <OptionBasket {...props}>{children}</OptionBasket>;
-};
-
-Header.BasketShoppingIcon = function HeaderBasketShoppingIcon() {
-    return <BasketShoppingIcon />;
-};
-
-Header.OptionLineOne = function HeaderOptionLineOne({ children, ...props }) {
-    return <OptionLineOne {...props}>{children}</OptionLineOne>;
-};
-
-Header.OptionLineTwo = function HeaderOptionLineTwo({ children, ...props }) {
-    return <OptionLineTwo {...props}>{children}</OptionLineTwo>;
-};
-
-Header.BasketCount = function HeaderBasketCount({ children, ...props }) {
-    return <BasketCount {...props}>{children}</BasketCount>;
+            </Navegation>
+        </Container>
+    )
 };
 
 export default Header;
