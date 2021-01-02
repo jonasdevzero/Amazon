@@ -7,9 +7,7 @@ export const Container = styled.div`
     margin: 0 auto;
 `;
 
-export const Inner = styled.div`
-
-`;
+export const Inner = styled.div``;
 
 export const Banner = styled.img`
     width: 100%;
