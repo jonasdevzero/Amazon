@@ -43,7 +43,7 @@ function Header() {
 
                 <Link to={!user ? '/login' : '/'}>
                     <Option onClick={handleAuth}>
-                        <OptionLineOne>Hello, {!user ? 'Gest' : user.email}</OptionLineOne>
+                        <OptionLineOne>Hello, {user ? user.email.split('@')[0] : 'Gest'}</OptionLineOne>
                         <OptionLineTwo>{user ? 'Sign Out' : 'Sign In'}</OptionLineTwo>
                     </Option>
                 </Link>
