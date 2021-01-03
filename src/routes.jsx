@@ -5,7 +5,12 @@ import { auth } from './firebase';
 import { useStateValue } from './Provider/StateProvider';
 
 import { Header } from './components';
-import { Home, Checkout, Login } from './pages';
+import {
+    Home,
+    Checkout,
+    Login,
+    Payment
+} from './pages';
 
 function Routes() {
     // eslint-disable-next-line no-empty-pattern
@@ -40,6 +45,10 @@ function Routes() {
                 </Route>
                 <Route path='/login'>
                     <Login />
+                </Route>
+                <Route path='/payment'>
+                    <Header />
+                    <Payment />
                 </Route>
             </Switch>
         </Router>
