@@ -31,7 +31,7 @@ function Home() {
                         title='Xbox series X'
                         price={450.0}
                         rating={5}
-                        image='https://imagens.canaltech.com.br/produto/1584982530-7573-principal-m.png'
+                        image='https://compass-ssl.xbox.com/assets/af/b0/afb0b9cd-0d06-43de-8729-6087ff47147d.png?n=GLP-2020_Feature-1400_XSX_935x1166_03.png'
                     />
                 </Row>
 
@@ -41,7 +41,7 @@ function Home() {
                         title='Xiaomi MI 9T'
                         price={870.5}
                         rating={4}
-                        image='https://imagens.canaltech.com.br/produto/1562787521-6925-principal-m.png'
+                        image='https://a-static.mlcdn.com.br/618x463/capa-protetora-tpu-emborrachada-para-smartphone-xiaomi-mi-9t/xiaomi/170/a0283d403d22ccf8ef5436e85dc25de9.jpg'
                     />
                     <Product
                         id='4'
