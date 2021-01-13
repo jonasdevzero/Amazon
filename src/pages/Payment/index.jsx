@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useStateValue } from '../../Provider/StateProvider';
 
 import {
@@ -7,6 +8,7 @@ import {
 
 import {
     Container,
+    Inner,
     Section,
     TitleContainer,
     Address,
@@ -29,46 +31,52 @@ function Payment() {
 
     return (
         <Container>
-            <Section>
-                <TitleContainer>
-                    <h3>Delivery Address</h3>
-                </TitleContainer>
+            <Inner>
+                <h1>
+                    Checkout (<Link to="/checkout">{basket?.length} items</Link>)
+            </h1>
 
-                <Address>
-                    <p>{user?.email}</p>
-                    <p>latitude: {latitude}</p>
-                    <p>longitude: {longitude}</p>
-                </Address>
-            </Section>
+                <Section>
+                    <TitleContainer>
+                        <h3>Delivery Address</h3>
+                    </TitleContainer>
 
-            <Section>
-                <TitleContainer>
-                    <h3>Review items and delivery</h3>
-                </TitleContainer>
+                    <Address>
+                        <p>{user?.email}</p>
+                        <p>latitude: {latitude}</p>
+                        <p>longitude: {longitude}</p>
+                    </Address>
+                </Section>
 
-                <Items>
-                    {basket.map((item, i) => (
-                        <CheckoutProduct
-                            key={i}
-                            id={item.id}
-                            title={item.title}
-                            image={item.image}
-                            price={item.price}
-                            rating={item.rating}
-                        />
-                    ))}
-                </Items>
-            </Section>
+                <Section>
+                    <TitleContainer>
+                        <h3>Review items and delivery</h3>
+                    </TitleContainer>
 
-            <Section>
-                <TitleContainer>
-                    <h3>Payment Method</h3>
-                </TitleContainer>
+                    <Items>
+                        {basket.map((item, i) => (
+                            <CheckoutProduct
+                                key={i}
+                                id={item.id}
+                                title={item.title}
+                                image={item.image}
+                                price={item.price}
+                                rating={item.rating}
+                            />
+                        ))}
+                    </Items>
+                </Section>
 
-                <Details>
+                <Section>
+                    <TitleContainer>
+                        <h3>Payment Method</h3>
+                    </TitleContainer>
 
-                </Details>
-            </Section>
+                    <Details>
+
+                    </Details>
+                </Section>
+            </Inner>
         </Container>
     );
 };
