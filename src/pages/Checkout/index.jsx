@@ -38,7 +38,7 @@ function Checkout() {
             </Left>
 
             <Right>
-                <Subtotal items={basket} />
+                <Subtotal items={basket} text={`Subtotal (${basket?.length} items): `} />
             </Right>
         </Container>
     );

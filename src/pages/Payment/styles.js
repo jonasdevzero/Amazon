@@ -38,5 +38,9 @@ export const Items = styled.div`
 `;
 
 export const Details = styled.div`
+    flex: .8;
+`;
+
+export const PriceContainer = styled.div`
 
 `;

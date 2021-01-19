@@ -8,7 +8,7 @@ import {
     Button
 } from './styles';
 
-function Subtotal({ items }) {
+function Subtotal({ items, text }) {
     const history = useHistory()
 
     return (
@@ -17,10 +17,8 @@ function Subtotal({ items }) {
                 renderText={(value) => (
                     <>
                         <p>
-                            Subtotal ({items.length} items):
-                            <strong>
-                                $ {value}
-                            </strong>
+                            {text}
+                            <strong>{value}</strong>
                         </p>
                         <Gift>
                             <input type="checkbox" />

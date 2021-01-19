@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { auth } from './firebase';
 import { useStateValue } from './Provider/StateProvider';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 import { Header } from './components';
 import {
@@ -11,6 +13,8 @@ import {
     Login,
     Payment
 } from './pages';
+
+const promise = loadStripe('pk_test_51I98HZC464Xu6X2ciROrMOchFlzosvF5eOeiEz7Bzq4OI6jG4y603jNQqYbb1Ynl6J2YqF7BpOI81PSz4wWVG0J800Gn9EwISx');
 
 function Routes() {
     // eslint-disable-next-line no-empty-pattern
@@ -48,7 +52,9 @@ function Routes() {
                 </Route>
                 <Route path='/payment'>
                     <Header />
-                    <Payment />
+                    <Elements stripe={promise}>
+                        <Payment />
+                    </Elements>
                 </Route>
             </Switch>
         </Router>
