@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useStateValue } from '../../Provider/StateProvider';
 import CurrencyFormat from 'react-currency-format';
+import axios from '../../services/axios';
 
 import {
     CheckoutProduct,
@@ -25,21 +26,49 @@ function Payment() {
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
 
+    const history = useHistory();
     const stripe = useStripe();
     const elements = useElements();
 
+    const [succeeded, setSucceeded] = useState(false);
+    const [processing, setProcessing] = useState("");
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
+    const [clientSecret, setClientSecret] = useState();
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(position => {
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
         });
-    }, []);
 
-    function handleSubmit(e) {
+        async function getClientSecret() {
+            const response = await axios({
+                url: `/payments/create?total=${basket.reduce((amout, item) => amout + item.price, 0) * 100}`,
+                method: "post",
+            });
 
+            setClientSecret(response.data.clientSecret);
+        };
+
+        getClientSecret();
+    }, [basket]);
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setProcessing(true);
+
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement),
+            },
+        }).then(({ paymentIntent }) => {
+            setSucceeded(true);
+            setError(null);
+            setProcessing(false);
+
+            history.replace('/orders');
+        });
     };
 
     function handleChange(e) {
@@ -98,11 +127,10 @@ function Payment() {
                                 <CurrencyFormat
                                     renderText={(value) => (
                                         <>
-                                            <p>
+                                            <h3>
                                                 Order Total:
                                                 <strong>{value}</strong>
-                                            </p>
-                                            <button></button>
+                                            </h3>
                                         </>
                                     )}
                                     decimalScale={2}
@@ -111,7 +139,14 @@ function Payment() {
                                     thousandSeparator={true}
                                     prefix={"$"}
                                 />
+                                <button
+                                    disabled={processing || disabled || succeeded}
+                                >
+                                    <span>{processing ? (<p>Processing</p>) : "Buy Now"}</span>
+                                </button>
                             </PriceContainer>
+
+                            {error && (<div>{error}</div>)}
                         </form>
                     </Details>
                 </Section>
